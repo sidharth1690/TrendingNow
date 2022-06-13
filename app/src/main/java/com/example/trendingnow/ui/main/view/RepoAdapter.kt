@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.compose.ui.text.toUpperCase
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trendingnow.R
@@ -29,11 +30,23 @@ class RepoAdapter(
             itemView.tc_owner_name.text = item.owner.login
             itemView.tx_watches.text= "Watchers :".plus(item.watchers.toString())
             itemView.tx_forks.text= "Forks :".plus(item.forks.toString())
-            itemView.tx_visibility.text= item.visibility
+            itemView.tx_visibility.text= item.visibility.uppercase(Locale.getDefault())
             itemView.tx_open_issues.text= "Open Issues :".plus(item.open_issues.toString())
             if(item.selection_flag==1){
-                itemView.ll_main.setBackgroundColor(ContextCompat.getColor(itemView.ll_main.context, R.color.grey))
+                itemView.tx_repo_name.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.tc_owner_name.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.tx_watches.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.tx_forks.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.tx_open_issues.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.tx_visibility.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
+                itemView.ll_main.setBackgroundColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
             }else{
+                itemView.tx_repo_name.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
+                itemView.tc_owner_name.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
+                itemView.tx_watches.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
+                itemView.tx_forks.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
+                itemView.tx_visibility.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
+                itemView.tx_open_issues.setTextColor(ContextCompat.getColor(itemView.ll_main.context, R.color.sky_blue))
                 itemView.ll_main.setBackgroundColor(ContextCompat.getColor(itemView.ll_main.context, R.color.white))
 
             }
